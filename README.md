@@ -1,1 +1,1 @@
-# Kaptur-Socail-Media-App
+# Kaptur-Social-Media-App

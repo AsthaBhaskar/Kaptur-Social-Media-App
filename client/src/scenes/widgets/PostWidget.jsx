@@ -13,6 +13,7 @@ import WidgetWrapper from "../../components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost } from "../../state";
+import { API_BASE_URL } from "../../config";
 
 const PostWidget = ({
   postId,
@@ -36,7 +37,7 @@ const PostWidget = ({
   const { palette } = useTheme();
 
   const patchLike = async () => {
-    const response = await fetch(`http://localhost:6001/posts/${postId}/like`, {
+    const response = await fetch(`${API_BASE_URL}/posts/${postId}/like`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -147,7 +148,7 @@ const PostWidget = ({
               height="auto"
               alt="post"
               style={{ display: "block" }}
-              src={`http://localhost:6001/assets/${picturePath}`}
+              src={`${API_BASE_URL}/assets/${picturePath}`}
             />
           </Box>
         )}

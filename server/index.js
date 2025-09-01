@@ -29,7 +29,17 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+// CORS configuration for production
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://your-vercel-domain.vercel.app", // Replace with your actual Vercel domain
+    "https://*.vercel.app" // Allow all Vercel subdomains
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 /* FILE STORAGE */

@@ -2,6 +2,7 @@ import { Typography, useTheme, Box, Button, Chip } from "@mui/material";
 import FlexBetween from "../../components/FlexBetween";
 import WidgetWrapper from "../../components/WidgetWrapper";
 import { TrendingUp, Launch } from "@mui/icons-material";
+import { API_BASE_URL } from "../../config";
 
 const AdvertWidget = () => {
   const { palette } = useTheme();
@@ -52,7 +53,7 @@ const AdvertWidget = () => {
           width="100%"
           height="auto"
           alt="advert"
-          src="http://localhost:6001/assets/info4.jpeg"
+          src={`${API_BASE_URL}/assets/info4.jpeg`}
           style={{ display: "block" }}
         />
       </Box>
